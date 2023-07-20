@@ -32,5 +32,5 @@ time python3 run-articles-spider.py
 ```
 ## References
 
-Miller, Thomas. 2015. “Modeling Techniques in Predictive Analytics Chapter 3.” 2015. https://github.com/mtpa/mtpa/tree/master/MTPA_Chapter_3.
+Miller, Thomas. 2015. “Modeling Techniques in Predictive Analytics Chapter 3.” 2015. https://github.com/mtpa/mtpa/tree/master/MTPA_Chapter_3. \
 Saha, Amit. 2022. Practical Go: Building Scalable Network & Non-network Applications. New York: Wiley. ISBN-13: 978-1-119-77381-8. Chapter 3 Writing HTTP Clients (pages 57–80) and Chapter 4 Advanced HTTP Clients (pages 81–104).
