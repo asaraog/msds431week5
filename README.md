@@ -24,7 +24,7 @@ Download or git clone this project onto local machine into folder on local machi
 ```
 git clone https://github.com/asaraog/msds431week5.git
 cd msds431week5
-time ./Week6
+time ./Week5
 
 cd ..
 cd WebFocusedCrawlWorkV001
