@@ -2,9 +2,9 @@
 
 ## Project Summary
 
-Go will be help power our backend web and database servers and distributed service offerings on the cloud. However, data science operations remain a key concern as Python remain popular. This project aims to implement web crawling and scraping of Wikipedia [(described by Chanda 2021)](https://www.scrapingbee.com/blog/web-scraping-go/#building-a-basic-scraper) webpages in Go using the [Colly](https://go-colly.org/). The Go implementation is benchmarked for runtime using 'time' before commands in the command line to compare with [Python's implementation using scrapy](./WebFocusedCrawlWorkV001). The results are subsequently written to a JSONL (.jl) file based on previous implementations ([Div Rhino 2020](https://divrhino.com/articles/build-webscraper-with-go-and-colly/)).
+Go will be help power our backend web and database servers and distributed service offerings on the cloud. However, data science operations remain a key concern as Python remain popular. This project aims to implement web crawling and scraping of Wikipedia [(described by Chanda 2021)](https://www.scrapingbee.com/blog/web-scraping-go/#building-a-basic-scraper) webpages in Go using [Colly](https://go-colly.org/). The Go implementation is benchmarked for runtime using 'time' before commands in the command line to compare with [Python's implementation for the same 10 webpages using scrapy](./WebFocusedCrawlWorkV001). The results are subsequently written to a JSONL (items.jl) file based on previous implementations ([Div Rhino 2020](https://divrhino.com/articles/build-webscraper-with-go-and-colly/)).
 
-Python was significantly faster compared Go implementations with 'real' runtimes of 2.27s, 4.10s, 5.02s for Python and Go respectively. While Python was less verbose and a bit faster than Go, Go is more scalable and has concurrency support to allow for parallel processing using [Colly](https://go-colly.org/docs/examples/parallel/). The Data Science team sees test-driven development as an asset in Go and with equivalent web  crawling and scraping, we strongly recommend using Go as the primary programming language accross the company.
+Python was significantly slower compared Go implementations with 'real' runtimes of 15.9s and 0.6s for Python and Go respectively. While Python was less verbose than Go, Go is more scalable and has concurrency support to allow for even faster processing using [Colly](https://go-colly.org/docs/examples/parallel/). The Data Science team sees test-driven development as an asset in Go and with the difference in processing time, we strongly recommend using Go as the primary programming language accross the company.
 
 ## Files
 
@@ -20,16 +20,15 @@ Unix executable file of cross-compiled Go code for Mac/Windows.
 ## Installation
 
 Download or git clone this project onto local machine into folder on local machine.
-
 ```
 git clone https://github.com/asaraog/msds431week5.git
 cd msds431week5
 time ./Week5
 
-cd ..
 cd WebFocusedCrawlWorkV001
 time python3 run-articles-spider.py
 ```
+
 ## References
 Chanda, Subha. 2021. “Web Scraping with Go.” ScrapingBee. 2021. https://www.scrapingbee.com/blog/web-scraping-go/. \
 Colly Team. 2018. “Gocolly Package.” Colly. 2018. https://go-colly.org/. \
