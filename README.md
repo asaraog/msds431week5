@@ -14,6 +14,9 @@ Main routine loads descriptions from webpages using the Scrape function built us
 *saraogeeweek5_test.go:* \
 Unit test for Scrape function. This testing routine ensures equivalence with expected Titles and URLs from chosen websites. It uses a function by others to remove duplicates [(Gosamples 2022)](https://gosamples.dev/remove-duplicates-slice/).
 
+*items.jl* \
+JSONL output file with URL, Title and Text fields for each website on a different line.
+
 *Week5* \
 Unix executable file of cross-compiled Go code for Mac/Windows. 
 
