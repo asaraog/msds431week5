@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-Go will be help power our backend web and database servers and distributed service offerings on the cloud. However, data science operations remain a key concern as Python remain popular. This project aims to implement web crawling and scraping of Wikipedia [(described by Chanda 2021)](https://www.scrapingbee.com/blog/web-scraping-go/#building-a-basic-scraper) webpages in Go using the [Colly](https://go-colly.org/). The Go implementation is benchmarked for runtime using 'time' before commands in the command line to compare with [Python's](./WebFocusedCrawlWorkV001) scrapy package. The results are subsequently written to a JSONL (.jl) file based on previous implementations ([Div Rhino 2020](https://divrhino.com/articles/build-webscraper-with-go-and-colly/)).
+Go will be help power our backend web and database servers and distributed service offerings on the cloud. However, data science operations remain a key concern as Python remain popular. This project aims to implement web crawling and scraping of Wikipedia [(described by Chanda 2021)](https://www.scrapingbee.com/blog/web-scraping-go/#building-a-basic-scraper) webpages in Go using the [Colly](https://go-colly.org/). The Go implementation is benchmarked for runtime using 'time' before commands in the command line to compare with [Python's implementation using scrapy](./WebFocusedCrawlWorkV001). The results are subsequently written to a JSONL (.jl) file based on previous implementations ([Div Rhino 2020](https://divrhino.com/articles/build-webscraper-with-go-and-colly/)).
 
 Python was significantly faster compared Go implementations with 'real' runtimes of 2.27s, 4.10s, 5.02s for Python and Go respectively. While Python was less verbose and a bit faster than Go, Go is more scalable and has concurrency support to allow for parallel processing using [Colly](https://go-colly.org/docs/examples/parallel/). The Data Science team sees test-driven development as an asset in Go and with equivalent web  crawling and scraping, we strongly recommend using Go as the primary programming language accross the company.
 
@@ -12,7 +12,7 @@ Python was significantly faster compared Go implementations with 'real' runtimes
 Main routine loads descriptions from webpages using the Scrape function built using Colly with output as a .jl (JSONL) file with URL, Title and Text fields. It also saves a .html of the webpage in a new directory ['wikipages'](./wikipages).
 
 *saraogeeweek5_test.go:* \
-Unit test for Scrape function. This testing routine ensures equivalence with expected Titles and URLs from chosen websites.
+Unit test for Scrape function. This testing routine ensures equivalence with expected Titles and URLs from chosen websites. It uses a function by others to remove duplicates [(Gosamples 2022)](https://gosamples.dev/remove-duplicates-slice/).
 
 *Week5* \
 Unix executable file of cross-compiled Go code for Mac/Windows. 
