@@ -31,8 +31,8 @@ cd WebFocusedCrawlWorkV001
 time python3 run-articles-spider.py
 ```
 ## References
-Chanda, Subha. 2021. “Web Scraping with Go.” ScrapingBee. 2021. https://www.scrapingbee.com/blog/web-scraping-go/. \n
-Colly Team. 2018. “Gocolly Package.” Colly. 2018. https://go-colly.org/. \n
-Div Rhino. 2020. “How to Build a Web Scraper with Go and Colly.” DivRhino. 2020. https://divrhino.com/articles/build-webscraper-with-go-and-colly/. \n
+Chanda, Subha. 2021. “Web Scraping with Go.” ScrapingBee. 2021. https://www.scrapingbee.com/blog/web-scraping-go/. \
+Colly Team. 2018. “Gocolly Package.” Colly. 2018. https://go-colly.org/. \
+Div Rhino. 2020. “How to Build a Web Scraper with Go and Colly.” DivRhino. 2020. https://divrhino.com/articles/build-webscraper-with-go-and-colly/. \
 Gosamples. 2022. “Remove Duplicates from a Slice in Go (Golang).” February 4, 2022. https://gosamples.dev/remove-duplicates-slice/.
 
