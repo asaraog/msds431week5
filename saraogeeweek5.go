@@ -73,10 +73,5 @@ func Scrape(pagesToScrape []string) (descs []JSONoutput) {
 	}
 	c.Wait() //Waits to ensure time to visit each URL
 
-	// if descs[1].Text == "" {
-	// 	descs = descs[1:]
-	// 	descs = append(descs[1:], descs[0])
-	// }
-
 	return descs
 }
