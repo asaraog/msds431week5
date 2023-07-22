@@ -9,6 +9,7 @@ import (
 	"github.com/gocolly/colly"
 )
 
+// Output file type and fields for URL, Title and Text for each page
 type JSONoutput struct {
 	Url   string `json:"url"`
 	Title string `json:"title"`
@@ -16,7 +17,6 @@ type JSONoutput struct {
 }
 
 func main() {
-	os.Mkdir("wikipages", 0700)
 	pagesToScrape := []string{
 		"https://en.wikipedia.org/wiki/Robotics",
 		"https://en.wikipedia.org/wiki/Robot",
@@ -27,20 +27,39 @@ func main() {
 		"https://en.wikipedia.org/wiki/Robotic_process_automation",
 		"https://en.wikipedia.org/wiki/Chatbot",
 		"https://en.wikipedia.org/wiki/Applications_of_artificial_intelligence",
-		"htts://en.wikipedia.orgwiki/Android_(robot)",
+		"https://en.wikipedia.org/wiki/Android_(robot)",
 	}
 
-	//HTTP client creation
+	//Perform Scraping
+	descs := Scrape(pagesToScrape)
+	fmt.Println(len(descs))
+	//Marshal description into JSON encoding
+	marshaldescs, _ := json.Marshal(descs)
+	//Write JSON line file
+	os.WriteFile("items.jl", marshaldescs, 0666)
+}
+
+// Function for scraping and testing
+func Scrape(pagesToScrape []string) (descs []JSONoutput) {
+	//Make seperate directory to save .html files
+	os.Mkdir("wikipages", 0700)
+
+	//HTTP client creation using colly
 	c := colly.NewCollector(
 		colly.AllowedDomains("en.wikipedia.org"),
 	)
 
-	//Parsing Logic
-	descs := make([]JSONoutput, 0)
+	//Parsing Logic for each HTML page for URL, Title and Text
+	//Initialize empty file for output
+	descs = make([]JSONoutput, 0)
+	//Wikipedia pages have a .mw-parser-output style heading in the Body
 	c.OnHTML(".mw-parser-output", func(e *colly.HTMLElement) {
+		//This seperates the URL using '/' to seperate the last part of the URL for Title
 		sepURL := strings.Split(e.Request.URL.String(), "/")
+
 		desc := JSONoutput{
-			Url:   e.Request.URL.String(),
+			Url: e.Request.URL.String(),
+			//This takes the last value after the URL is split for the page Title
 			Title: sepURL[len(sepURL)-1],
 			Text:  e.Text,
 		}
@@ -51,13 +70,13 @@ func main() {
 	//Scraping each URL
 	for _, pageToScrape := range pagesToScrape {
 		c.Visit(pageToScrape)
-		c.OnError(func(_ *colly.Response, err error) {
-			fmt.Println("Bad url:", err)
-		})
 	}
-	c.Wait()
+	c.Wait() //Waits to ensure time to visit each URL
 
-	//Export Logic
-	Marshaldescs, _ := json.Marshal(descs)
-	os.WriteFile("items.jl", Marshaldescs, 0666)
+	// if descs[1].Text == "" {
+	// 	descs = descs[1:]
+	// 	descs = append(descs[1:], descs[0])
+	// }
+
+	return descs
 }
