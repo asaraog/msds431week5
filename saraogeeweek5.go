@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"strings"
 
@@ -32,7 +31,6 @@ func main() {
 
 	//Perform Scraping
 	descs := Scrape(pagesToScrape)
-	fmt.Println(len(descs))
 	//Marshal description into JSON encoding
 	marshaldescs, _ := json.Marshal(descs)
 	//Write JSON line file
